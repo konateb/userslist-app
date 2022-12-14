@@ -6,9 +6,9 @@ import { ListItem } from "react-native-elements";
 import axios from "axios";
 
 const defaultParam = {
-  seed: 3,
+  seed: 1,
   page: 20,
-  results: 100,
+  results: 5000,
 };
 
 const Item = ({ title, name, subtitle, avatar, id }) => (
@@ -46,6 +46,7 @@ export default function App() {
       url: "https://randomuser.me/api",
       params: {
         results: formData.results,
+        seed: formData.seed,
       },
     };
 
