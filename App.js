@@ -1,14 +1,16 @@
 import { SafeAreaView, StyleSheet, View } from "react-native";
 
 import RandomUsers from "./components/RandomUsers";
+import { useState } from "react";
 
 export default function App() {
   
+  const [userData, setUserData] = useState([]);
 
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <RandomUsers/>
+        <RandomUsers userData={userData} setUserData={setUserData} />
       </View>
     </SafeAreaView>
   );

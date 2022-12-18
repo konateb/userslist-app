@@ -1,18 +1,17 @@
 import { FlatList, View } from "react-native";
-import { useEffect, useState } from "react";
 
 import Item from "./Item";
 import axios from "axios";
+import { useEffect } from "react";
 
 const defaultParam = {
   seed: 1,
   page: 20,
   results: 50,
 };
-const RandomUsers = () => {
-  const [userData, setUserData] = useState([]);
+const RandomUsers = ({ userData, setUserData }) => {
 
-  useEffect(() => {
+  const fetchData = async () => {
     const options = {
       method: "GET",
       url: "https://randomuser.me/api",
@@ -21,17 +20,14 @@ const RandomUsers = () => {
         seed: defaultParam.seed,
       },
     };
-
-    axios
-      .request(options)
-      .then(function (response) {
-        setUserData(response.data.results);
-        console.log(response.data.results);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, [defaultParam]);
+    const response = await axios.request(options);
+    const data = await response.data.results;
+    setUserData(data);
+    //   setLoading(false);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const renderItem = ({ item }) => (
     <Item
