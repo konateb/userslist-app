@@ -4,10 +4,6 @@ import { useEffect, useState } from "react";
 import RandomUsers from "./components/RandomUsers";
 import axios from "axios";
 
-// import { Avatar } from "@rneui/themed";
-// import Item from "./components/Item";
-// import { ListItem } from "react-native-elements";
-
 const defaultParam = {
   seed: 1,
   page: 20,
@@ -39,19 +35,7 @@ export default function App() {
       });
   }, [formData]);
 
-  // const renderSeparator = () => {
-  //   return (
-  //     <View
-  //       style={{
-  //         height: 1,
-  //         width: "86%",
-  //         backgroundColor: "#CED0CE",
-  //         marginLeft: "14%",
-  //       }}
-  //     />
-  //   );
-  // };
-
+  
   return (
     <SafeAreaView style={styles.container}>
       <View>
