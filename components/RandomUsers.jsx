@@ -1,9 +1,38 @@
 import { FlatList, View } from "react-native";
+import { useEffect, useState } from "react";
 
 import Item from "./Item";
+import axios from "axios";
 
-const RandomUsers = ({ data }) => {
-    
+const defaultParam = {
+  seed: 1,
+  page: 20,
+  results: 50,
+};
+const RandomUsers = () => {
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      url: "https://randomuser.me/api",
+      params: {
+        results: defaultParam.results,
+        seed: defaultParam.seed,
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        setUserData(response.data.results);
+        console.log(response.data.results);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, [defaultParam]);
+
   const renderItem = ({ item }) => (
     <Item
       id={item.id}
@@ -28,7 +57,7 @@ const RandomUsers = ({ data }) => {
   return (
     <View>
       <FlatList
-        data={data}
+        data={userData}
         renderItem={renderItem}
         ItemSeparatorComponent={renderSeparator}
         keyExtractor={(item) => item.email}
