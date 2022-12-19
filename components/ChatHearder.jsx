@@ -1,5 +1,5 @@
 import { Header } from "react-native-elements";
-import React from 'react'
+import React from "react";
 
 const ChatHearder = () => {
   return (
@@ -7,7 +7,7 @@ const ChatHearder = () => {
       barStyle="light-content"
       leftComponent={{ icon: "menu", color: "#fff", paddingTop: 10 }}
       centerComponent={{
-        text: "Kale Chat.",
+        text: "La liste des Makers",
         style: { color: "#fff", paddingTop: 10 },
       }}
       rightComponent={{ icon: "logout", color: "#fff", paddingTop: 10 }}
@@ -17,6 +17,6 @@ const ChatHearder = () => {
       }}
     />
   );
-}
+};
 
-export default ChatHearder
+export default ChatHearder;
