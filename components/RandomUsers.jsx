@@ -10,7 +10,7 @@ const defaultParam = {
   results: 50,
 };
 const RandomUsers = () => {
-    const [usersList, setUsersList] = useState([]);
+  const [usersList, setUsersList] = useState([]);
   const fetchData = async () => {
     const options = {
       method: "GET",
@@ -30,7 +30,6 @@ const RandomUsers = () => {
 
   const renderItem = ({ item }) => (
     <Item
-      id={item.id}
       title={item.name.title}
       name={`${item.name.first} ${item.name.last}`}
       subtitle={item.email}
