@@ -32,7 +32,7 @@ const RandomUsers = () => {
     <Item
       title={item.name.title}
       name={`${item.name.first} ${item.name.last}`}
-      subtitle={item.email}
+      email={item.email}
       avatar={item.picture.thumbnail}
     />
   );

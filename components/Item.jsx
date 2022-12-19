@@ -1,7 +1,7 @@
 import { Avatar } from "@rneui/themed";
 import { ListItem } from "react-native-elements";
 
-const Item = ({ title, name, subtitle, avatar, email }) => {
+const Item = ({ title, name, avatar, email }) => {
   return (
     <ListItem
       bottomDivider
@@ -13,7 +13,6 @@ const Item = ({ title, name, subtitle, avatar, email }) => {
       <ListItem.Content>
         <ListItem.Title>{title}</ListItem.Title>
         <ListItem.Subtitle>{name}</ListItem.Subtitle>
-        <ListItem.Subtitle>{subtitle}</ListItem.Subtitle>
         <ListItem.Subtitle>{email}</ListItem.Subtitle>
       </ListItem.Content>
       <ListItem.Chevron />
