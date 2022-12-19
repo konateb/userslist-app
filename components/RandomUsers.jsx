@@ -1,15 +1,16 @@
 import { FlatList, View } from "react-native";
+import { useEffect, useState } from "react";
 
 import Item from "./Item";
 import axios from "axios";
-import { useEffect } from "react";
 
 const defaultParam = {
   seed: 1,
   page: 20,
   results: 50,
 };
-const RandomUsers = ({ usersList, setUsersList }) => {
+const RandomUsers = () => {
+    const [usersList, setUsersList] = useState([]);
   const fetchData = async () => {
     const options = {
       method: "GET",
