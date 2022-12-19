@@ -9,8 +9,7 @@ const defaultParam = {
   page: 20,
   results: 50,
 };
-const RandomUsers = ({ userData, setUserData }) => {
-
+const RandomUsers = ({ usersList, setUsersList }) => {
   const fetchData = async () => {
     const options = {
       method: "GET",
@@ -22,8 +21,7 @@ const RandomUsers = ({ userData, setUserData }) => {
     };
     const response = await axios.request(options);
     const data = await response.data.results;
-    setUserData(data);
-    //   setLoading(false);
+    setUsersList(data);
   };
   useEffect(() => {
     fetchData();
@@ -42,10 +40,10 @@ const RandomUsers = ({ userData, setUserData }) => {
     return (
       <View
         style={{
-          height: 1,
-          width: "86%",
-          backgroundColor: "#CED0CE",
-          marginLeft: "14%",
+          height: 3,
+          width: "100%",
+          backgroundColor: "#5786ccff",
+          marginLeft: "0%",
         }}
       />
     );
@@ -53,7 +51,7 @@ const RandomUsers = ({ userData, setUserData }) => {
   return (
     <View>
       <FlatList
-        data={userData}
+        data={usersList}
         renderItem={renderItem}
         ItemSeparatorComponent={renderSeparator}
         keyExtractor={(item) => item.email}

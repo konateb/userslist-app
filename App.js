@@ -1,16 +1,18 @@
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet, View } from "react-native";
 
+import ChatHearder from "./components/ChatHearder";
 import RandomUsers from "./components/RandomUsers";
 import { useState } from "react";
 
 export default function App() {
-  
-  const [userData, setUserData] = useState([]);
+  const [usersList, setUsersList] = useState([]);
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <RandomUsers userData={userData} setUserData={setUserData} />
+      <ChatHearder />
+      <StatusBar animated={true} backgroundColor="#5786ccff" />
+      <View style={styles.mainbox}>
+        <RandomUsers usersList={usersList} setUsersList={setUsersList} />
       </View>
     </SafeAreaView>
   );
