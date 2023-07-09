@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import Item from "./Item";
 import axios from "axios";
-
+import countryCode from "../utils/countries";
 const defaultParam = {
   seed: 1,
   page: 20,
@@ -11,6 +11,7 @@ const defaultParam = {
 };
 const RandomUsers = () => {
   const [usersList, setUsersList] = useState([]);
+  
   const fetchData = async () => {
     const options = {
       method: "GET",
@@ -22,11 +23,12 @@ const RandomUsers = () => {
     };
     const response = await axios.request(options);
     const data = await response.data.results;
+    
     setUsersList(data);
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, []); 
 
   const renderItem = ({ item }) => (
     <Item
@@ -34,6 +36,8 @@ const RandomUsers = () => {
       name={`${item.name.first} ${item.name.last}`}
       email={item.email}
       avatar={item.picture.thumbnail}
+      flag={`https://flagsapi.com/${countryCode(item.location.country)}/flat/64.png`}
+      countryName ={item.location.country}
     />
   );
   const renderSeparator = () => {
