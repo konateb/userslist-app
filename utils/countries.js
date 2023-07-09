@@ -245,7 +245,7 @@ const countriesData = [
   { Code: "VI", Name: "Virgin Islands, U.S." },
   { Code: "WF", Name: "Wallis and Futuna" },
   { Code: "EH", Name: "Western Sahara" },
-  { Code: "YE", Name: "Yemen" },
+  { Code: "YE", Name: "Yemen", Region: "South Africa" },
   { Code: "ZM", Name: "Zambia" },
   { Code: "ZW", Name: "Zimbabwe" },
 ];
