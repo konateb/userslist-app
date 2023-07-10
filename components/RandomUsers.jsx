@@ -23,7 +23,6 @@ const RandomUsers = () => {
     };
     const response = await axios.request(options);
     const data = await response.data.results;
-    console.log(data);
     setUsersList(data);
   };
   useEffect(() => {
