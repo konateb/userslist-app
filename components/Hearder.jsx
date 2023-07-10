@@ -1,7 +1,7 @@
 import { Header } from "react-native-elements";
 import React from "react";
 
-const ChatHearder = () => {
+const Hearder = () => {
   return (
     <Header
       barStyle="light-content"
@@ -19,4 +19,4 @@ const ChatHearder = () => {
   );
 };
 
-export default ChatHearder;
+export default Hearder;
